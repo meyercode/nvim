@@ -3,6 +3,8 @@ require "neo-tree".setup({
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
+    use_libuv_file_watcher = true,
+    follow_current_file = true,
     window = {
         position = "left",
         width = 32,
@@ -16,5 +18,5 @@ require "neo-tree".setup({
             hide_dotfiles = false,
         }
     },
-    mappings = require 'keymappings'.neo_tree,
+    mappings = require "keymappings".neo_tree,
 })
