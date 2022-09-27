@@ -80,6 +80,7 @@ return require("packer").startup(function(use)
     use { "neovim/nvim-lspconfig" }
     use { "williamboman/mason-lspconfig.nvim", load_after = { "mason.nvim", "nvim-lspconfig" } }
     use { "mfussenegger/nvim-dap" }
+    use { "simrat39/rust-tools.nvim" }
 
     -- Snippets!
     use { "L3MON4D3/LuaSnip" }
@@ -120,7 +121,5 @@ return require("packer").startup(function(use)
         tag = "v2.*",
         requires = "kyazdani42/nvim-web-devicons"
     }
-
-    use "nanotee/sqls.nvim"
 
 end)
