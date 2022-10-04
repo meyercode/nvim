@@ -41,10 +41,11 @@ map.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 map.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map.set("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map.set("v", "<leader>c", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
-map.set("n", "<leader>p", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+map.set("n", "<leader>d", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
 map.set("n", "<f2>", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 ----------------

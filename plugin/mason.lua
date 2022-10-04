@@ -32,9 +32,10 @@ end
 local fnmDir = os.getenv "FNM_DIR"
 local nodeVersion = get_node_version()
 
+local fnmTsserverlibraryPath = util.path.join(fnmDir, "node-versions", nodeVersion,
+    "installation/lib/node_modules/typescript/lib/tsserverlibrary.js")
+
 local function get_typescript_server_path(root_dir)
-    local global_ts = string.format("%s/node-versions/%s/installation/lib/node_modules/typescript/lib/tsserverlibrary.js"
-        , fnmDir, nodeVersion)
     -- Alternative location if installed as root:
     -- local global_ts = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
     local found_ts = ""
@@ -48,9 +49,35 @@ local function get_typescript_server_path(root_dir)
     if util.search_ancestors(root_dir, check_dir) then
         return found_ts
     else
-        return global_ts
+        return fnmTsserverlibraryPath
     end
 end
+
+local fnmVolarServerPath = util.path.join(fnmDir, "node-versions", nodeVersion,
+    "installation/bin/vue-language-server")
+
+local function get_volar_server_path(root_dir)
+    local found_volar = ""
+    local function check_dir(path)
+        found_volar = util.path.join(path, "node_modules", "@volar/vue-language-server/bin/vue-language-server.js")
+        if util.path.exists(found_volar) then
+            return path
+        end
+    end
+
+    if util.search_ancestors(root_dir, check_dir) then
+        return found_volar
+    else
+        return fnmVolarServerPath
+    end
+end
+
+lspconfig.volar.setup {
+    on_new_config = function(new_config, new_root_dir)
+        new_config.init_options.typescript.serverPath = get_typescript_server_path(new_root_dir)
+        new_config.init_options.cmd = { "node", get_volar_server_path(new_root_dir), "--stdio" }
+    end,
+}
 
 require "mason-lspconfig".setup_handlers {
     -- The first entry (without a key) will be the default handler
@@ -122,11 +149,4 @@ require "mason-lspconfig".setup_handlers {
             },
         }
     end,
-    ["volar"] = function()
-        lspconfig.volar.setup {
-            on_new_config = function(new_config, new_root_dir)
-                new_config.init_options.typescript.serverPath = get_typescript_server_path(new_root_dir)
-            end,
-        }
-    end
 }
