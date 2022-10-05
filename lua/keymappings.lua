@@ -35,7 +35,7 @@ map.set("n", "<leader>n", ":Neotree left focus reveal<CR>")
 -- LSP
 -----------------------------------------------------------
 
-map.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+map.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 map.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 map.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
@@ -45,7 +45,7 @@ map.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map.set("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map.set("v", "<leader>c", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
-map.set("n", "<leader>d", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+map.set("n", "<leader>d", "<cmd>lua vim.diagnostic.get()<CR>")
 map.set("n", "<f2>", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 ----------------
