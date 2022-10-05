@@ -18,5 +18,5 @@ require "neo-tree".setup({
             hide_dotfiles = false,
         }
     },
-    mappings = require "keymappings".neo_tree,
+    mappings = require "keymaps".neo_tree,
 })

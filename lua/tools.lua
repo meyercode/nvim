@@ -12,7 +12,7 @@ end
 -- Reload Config by invalidating lua modules cached by "require"
 function M.reloadConfig()
     local hls_status = vim.v.hlsearch
-    package.loaded["keymappings"] = nil
+    package.loaded["keymaps"] = nil
     package.loaded["options"] = nil
     package.loaded["tools"] = nil
 

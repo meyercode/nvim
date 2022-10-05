@@ -5,7 +5,7 @@ capabilities = require "cmp_nvim_lsp".update_capabilities(capabilities)
 local cmp = require "cmp"
 
 cmp.setup({
-    mapping = require "keymappings".cmp,
+    mapping = require "keymaps".cmp,
     cmp = {
         source_priority = {
             nvim_lsp = 1000,

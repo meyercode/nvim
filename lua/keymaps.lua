@@ -31,6 +31,11 @@ map.set("i", "kk", "<Esc>")
 map.set("n", "<leader>n", ":Neotree left focus reveal<CR>")
 
 
+---------------
+-- gitsigns
+---------------
+map.set("n", "<leader>gb", ":lua require 'gitsigns'.blame_line()<CR>")
+
 -----------------------------------------------------------
 -- LSP
 -----------------------------------------------------------
