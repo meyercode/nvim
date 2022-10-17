@@ -10,7 +10,12 @@ require "mason".setup({
 
 require "mason-lspconfig".setup({
     automatic_installation = true,
-    ensure_installed = { "rust-analyzer", "sumneko_lua", "tsserver", "volar" }
+    ensure_installed = {
+        "rust_analyzer",
+        "sumneko_lua",
+        "tsserver",
+        "volar",
+    }
 })
 
 local lspconfig = require "lspconfig"
@@ -29,9 +34,9 @@ require "mason-lspconfig".setup_handlers {
             tools = {
                 autoSetHints = true,
                 inlay_hints = {
-                    show_parameter_hints = false,
-                    parameter_hints_prefix = "",
-                    other_hints_prefix = "",
+                    show_parameter_hints = true,
+                    parameter_hints_prefix = "<<< ",
+                    other_hints_prefix = "<- ",
                 },
             },
             -- nvim-lspconfig
