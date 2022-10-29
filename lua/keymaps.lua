@@ -50,7 +50,7 @@ map.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map.set("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map.set("v", "<leader>c", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
-map.set("n", "<leader>d", "<cmd>lua vim.diagnostic.get()<CR>")
+map.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 map.set("n", "<f2>", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 ----------------
