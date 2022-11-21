@@ -1,4 +1,4 @@
-require 'keymaps'
-require 'options'
-require 'tools'
-
+require "keymaps"
+require "options"
+require "tools"
+require "lsp"
