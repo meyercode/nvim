@@ -116,15 +116,10 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gruvbox.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fgruvbox\frequire\0" },
     loaded = true,
     path = "/Users/adam/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
-  ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\25show_current_context\2\nsetup\21indent_blankline\frequire\0" },
-    loaded = true,
-    path = "/Users/adam/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lualine.nvim"] = {
     config = { "\27LJ\2\n]\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\fgruvbox\nsetup\flualine\frequire\0" },
@@ -152,6 +147,11 @@ _G.packer_plugins = {
     path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/adam/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -161,6 +161,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-vscode-js"] = {
+    loaded = true,
+    path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
+    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -172,15 +177,9 @@ _G.packer_plugins = {
     path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
-  },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/adam/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/Users/adam/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
@@ -217,10 +216,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
@@ -229,10 +224,14 @@ time([[Config for trouble.nvim]], false)
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n]\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\fgruvbox\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\25show_current_context\2\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: gruvbox.nvim
+time([[Config for gruvbox.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fgruvbox\frequire\0", "config", "gruvbox.nvim")
+time([[Config for gruvbox.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -35,8 +35,8 @@ require "mason-lspconfig".setup_handlers {
                 autoSetHints = true,
                 inlay_hints = {
                     show_parameter_hints = true,
-                    parameter_hints_prefix = "<<< ",
-                    other_hints_prefix = "<- ",
+                    parameter_hints_prefix = "<<<",
+                    other_hints_prefix = "<-",
                 },
             },
             -- nvim-lspconfig

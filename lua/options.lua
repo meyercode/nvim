@@ -16,6 +16,7 @@ opt.updatetime = 50
 
 cmd [[colorscheme gruvbox]]
 opt.termguicolors = true
+opt.background = "dark"
 
 cmd [[filetype plugin on]]
 
@@ -45,7 +46,6 @@ local disabled_built_ins = {
     "vimballPlugin",
     "zip",
     "zipPlugin",
-    "tutor",
     "rplugin",
     "synmenu",
     "optwin",

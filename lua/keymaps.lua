@@ -27,9 +27,7 @@ map.set("i", "kk", "<Esc>")
 -----------------------------------------------------------
 -- Neotree
 -----------------------------------------------------------
-
 map.set("n", "<leader>n", ":Neotree left focus reveal<CR>")
-
 
 ---------------
 -- gitsigns
@@ -39,7 +37,6 @@ map.set("n", "<leader>gb", ":lua require 'gitsigns'.blame_line()<CR>")
 -----------------------------------------------------------
 -- LSP
 -----------------------------------------------------------
-
 map.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 map.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 map.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
@@ -53,13 +50,29 @@ map.set("v", "<leader>c", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 map.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 map.set("n", "<f2>", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
+-----------------------------------------------------------
+-- DAP
+-----------------------------------------------------------
+local dap = require("dap")
+map.set("n", "<leader>b", function() dap.toggle_breakpoint() end)
+map.set("n", "<leader>B", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+map.set("n", "<leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+map.set("n", "<leader>lb", function() dap.list_breakpoints() end)
+map.set("n", "<leader>dr", function() dap.repl.toggle() end)
+map.set("n", "<leader>dl", function() dap.run_last() end)
+map.set("n", "<F5>", function() dap.continue() end) -- implicitly calls dap.run()
+map.set("n", "<F10>", function() dap.step_over() end)
+map.set("n", "<F11>", function() dap.step_into() end)
+map.set("n", "<F12>", function() dap.step_out() end)
+
 ----------------
 -- Telescope
 ----------------
-
 map.set("n", "<Leader>ff", ":Telescope find_files<cr>")
 map.set("n", "<Leader>fg", ":Telescope live_grep<cr>")
-map.set("n", "<leader>fr", '<cmd>lua require("telescope.builtin").oldfiles()<cr>')
+map.set("n", "<leader>fr", function()
+    require("telescope.builtin").oldfiles({ only_cwd = true })
+end)
 map.set("n", "<Leader>fb", ":Telescope buffers<cr>")
 map.set("n", "<Leader>fh", ":Telescope help_tags<cr>")
 
@@ -103,11 +116,9 @@ M.cmp = {
     }),
 }
 
-
 -----------------
 -- Neo-tree
 -----------------
-
 M.neo_tree = {
     ["<space>"] = {
         "toggle_node",
@@ -145,5 +156,10 @@ M.neo_tree = {
     ["<"] = "prev_source",
     [">"] = "next_source",
 }
+
+-------------
+-- Trouble
+-------------
+map.set("n", "<leader>t", ":TroubleToggle<cr>")
 
 return M

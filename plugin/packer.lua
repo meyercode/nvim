@@ -4,7 +4,7 @@ local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({
+    PACKER_BOOTSTRAP = fn.system({
         "git",
         "clone",
         "--depth",
@@ -28,41 +28,7 @@ return require("packer").startup(function(use)
 
     use {
         "nvim-treesitter/nvim-treesitter",
-        requires = {
-            "p00f/nvim-ts-rainbow",
-        },
         run = ":TSUpdate",
-    }
-
-    use { "ellisonleao/gruvbox.nvim" }
-
-    -- Line
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-        config = function()
-            require("lualine").setup({
-                options = {
-                    theme = "gruvbox"
-                }
-            })
-        end
-    }
-
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
-    }
-
-    use {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
-        requires = { { "nvim-lua/plenary.nvim" } }
     }
 
     -- Autocomplete
@@ -78,34 +44,61 @@ return require("packer").startup(function(use)
     use { "neovim/nvim-lspconfig" }
     use { "williamboman/mason-lspconfig.nvim", load_after = { "mason.nvim", "nvim-lspconfig" } }
     use { "mfussenegger/nvim-dap" }
+    use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+    use { "jose-elias-alvarez/null-ls.nvim" }
+
     use { "simrat39/rust-tools.nvim" }
 
-    -- Snippets!
+    -- Snippets
     use { "L3MON4D3/LuaSnip" }
 
-    -- Git side status
     use {
-        "lewis6991/gitsigns.nvim",
-        tag = "release", -- To use the latest release
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.0",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
+
+    use {
+        "ellisonleao/gruvbox.nvim",
         config = function()
-            require("gitsigns").setup()
+            require "gruvbox".setup {}
         end
+    }
+
+    -- Line
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        config = function()
+            require("lualine").setup({
+                options = {
+                    theme = "gruvbox"
+                }
+            })
+        end
+    }
+
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
+    use {
+        "akinsho/bufferline.nvim",
+        tag = "v3.*",
+        requires = { "kyazdani42/nvim-web-devicons" },
     }
 
     use {
         "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("trouble").setup {}
-        end
-    }
-
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup {
-                show_current_context = true,
-            }
         end
     }
 
@@ -113,10 +106,13 @@ return require("packer").startup(function(use)
         "folke/which-key.nvim",
     }
 
+
     use {
-        "akinsho/bufferline.nvim",
-        tag = "v2.*",
-        requires = "kyazdani42/nvim-web-devicons"
+        "lewis6991/gitsigns.nvim",
+        tag = "release",
+        config = function()
+            require("gitsigns").setup()
+        end
     }
 
 end)
