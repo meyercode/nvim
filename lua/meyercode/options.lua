@@ -29,4 +29,3 @@ opt.termguicolors = true
 
 opt.signcolumn = "yes"
 opt.isfname:append "@-@"
-opt.colorcolumn = "80"

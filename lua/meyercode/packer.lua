@@ -33,13 +33,35 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } }
     }
 
-    use "bluz71/vim-nightfly-colors"
+    use({
+        "rose-pine/neovim",
+        as = "rose-pine",
+        config = function()
+            require("rose-pine").setup {
+                dark_variant = "moon"
+            }
+            vim.cmd "colorscheme rose-pine"
+            vim.o.background = "dark"
+        end
+    })
 
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use "nvim-treesitter/playground"
     use "theprimeagen/harpoon"
     use "mbbill/undotree"
-    use "tpope/vim-fugitive"
+    use {
+        "lewis6991/gitsigns.nvim",
+        tag = "release",
+    }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
+    }
 
     use {
         "VonHeikemen/lsp-zero.nvim",
@@ -65,7 +87,19 @@ return require("packer").startup(function(use)
             { "rafamadriz/friendly-snippets" },
         }
     }
-
-    use "folke/zen-mode.nvim"
     use "github/copilot.vim"
+
+    use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+    use { "jose-elias-alvarez/null-ls.nvim" }
+
+    use {
+        "folke/which-key.nvim",
+    }
+    use {
+        "folke/trouble.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
+    }
+    use "folke/zen-mode.nvim"
+
+    use "gpanders/editorconfig.nvim"
 end)
