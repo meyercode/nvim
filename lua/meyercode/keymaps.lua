@@ -7,6 +7,7 @@ map.set({ "n", "v" }, "ö", "$")
 map.set("n", "<leader>so", ":so %<cr>")
 
 map.set("i", "kk", "<Esc>")
+map.set("i", "jj", "<Esc>")
 
 -- paste without overwriting register
 map.set("x", "<leader>p", [["_dP]])
