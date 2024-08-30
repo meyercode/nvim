@@ -64,6 +64,7 @@ M[#M + 1] = {
 							format = {
 								enable = true,
 								defaultConfig = {
+									indent_size = "4",
 									quote_style = "double",
 								}
 							},
