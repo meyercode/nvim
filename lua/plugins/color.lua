@@ -1,19 +1,20 @@
 return {
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = true,
-  },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        lazy = true,
+        config = function()
+            require("rose-pine").setup {
+                styles = {
+                    transparency = true
+                },
+            }
+        end
+    },
 
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-  },
-
-  {
-    "echasnovski/mini.icons",
-    lazy = true,
-    version = false,
-  }
+    {
+        "echasnovski/mini.icons",
+        lazy = true,
+        version = false,
+    }
 }
