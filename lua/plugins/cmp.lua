@@ -16,18 +16,19 @@ M[#M + 1] = {
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
+		local luasnip = require("luasnip")
 
 		cmp.setup({
 			experimental = { ghost_text = true },
 			snippet = {
 				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+					luasnip.lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
 			preselect = "item",
 			completion = {
 				autocomplete = { cmp.TriggerEvent.TextChanged, cmp.TriggerEvent.InsertEnter },
-				completeopt = "menu,menuone,noinsert,noselect",
+				completeopt = "menu,menuone,noinsert",
 				keyword_length = 0,
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -45,16 +46,17 @@ M[#M + 1] = {
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip
+				{ name = "luasnip" },
 				{ name = "buffer",  keyword_length = 3, max_item_count = 10 },
 				{ name = "path" },
 				{ name = "lazydev", group_index = 0 }
 			}),
 			formatting = {
+				expandable_indicator = false,
 				fields = { "kind", "menu", "abbr" },
 				format = lspkind.cmp_format({
 					symbol_map = { Copilot = "" },
-					mode = "symbol",
+					mode = "symbol_text",
 					maxwidth = 150,
 				}),
 			},
