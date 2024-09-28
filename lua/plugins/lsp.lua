@@ -8,10 +8,10 @@ M[#M + 1] = {
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 	end,
 	keys = {
-		{ "<leader>f", function() vim.lsp.buf.format { async = true } end },
-		{ "gd",        function() vim.lsp.buf.definition() end },
-		{ "gD",        function() vim.lsp.buf.declaration() end },
-		{ "gi",        function() vim.lsp.buf.implementation() end },
+		{ "<leader>fm", function() vim.lsp.buf.format { async = true } end },
+		{ "gd",         function() vim.lsp.buf.definition() end },
+		{ "gD",         function() vim.lsp.buf.declaration() end },
+		{ "gi",         function() vim.lsp.buf.implementation() end },
 		{ "gr", function()
 			require "telescope.builtin".lsp_references(require("telescope.themes").get_cursor({
 				layout_config = {

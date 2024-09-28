@@ -30,10 +30,10 @@ local config = {
 	options = {
 		theme = rose_pine_theme,
 		component_separators = "",
-		section_separators = "",
+		section_separators = { left = "", right = "" },
 	},
 	sections = {
-		lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+		lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 		lualine_b = { "filename", "branch" },
 		lualine_c = {
 			"%=",
@@ -54,13 +54,13 @@ local config = {
 					return msg
 				end,
 				icon = "  lsp:",
-				color = { fg = colors.white, gui = "bold" },
+				color = { fg = colors.white, bg = colors.black },
 			},
 		},
 		lualine_x = {},
 		lualine_y = { "filetype", "progress" },
 		lualine_z = {
-			{ "location", separator = { right = "" }, left_padding = 2 },
+			{ "location", separator = { right = "" }, left_padding = 2 },
 		},
 	},
 	inactive_sections = {
