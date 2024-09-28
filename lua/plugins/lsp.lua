@@ -20,14 +20,14 @@ M[#M + 1] = {
 			}))
 		end },
 		{ "K",          function() vim.lsp.buf.hover() end },
-		{ "<C-k>",      function() vim.lsp.buf.signature_help() end },
+		{ "J",          function() vim.lsp.buf.signature_help() end },
+		{ "<C-j>",      function() vim.lsp.buf.signature_help() end,  mode = "i" },
 		{ "<leader>ws", function() vim.lsp.buf.workspace_symbol() end },
 		{ "<f2>",       function() vim.diagnostic.goto_next() end },
-		{ "<leader>c",  function() vim.lsp.buf.code_action() end },
-		{ "<leader>c",  function() vim.lsp.buf.range_code_action() end, mode = "v" },
+		{ "<leader>ca", function() vim.lsp.buf.code_action() end },
+		{ "<leader>ca", function() vim.lsp.buf.code_action() end,     mode = "v" },
 		{ "<leader>rr", function() vim.lsp.buf.references() end },
 		{ "<leader>rn", function() vim.lsp.buf.rename() end },
-		{ "<C-h>",      function() vim.lsp.buf.signature_help() end,    mode = "i" },
 	},
 }
 
